@@ -17,5 +17,19 @@ module.exports = function(){
     ProductController.upArchive,
     ProductController.newProduct);
 
+    //todos los productos
+    router.get('/products', ProductController.getProducts)
+
+    //producto por ID
+    router.get('/products/:idProduct', ProductController.getProduct)
+
+    //actualizar producto
+    router.put('/products/:idProduct', 
+    ProductController.upArchive,
+    ProductController.updateProduct);
+
+    //Eliminar producto
+    router.delete('/products/:idProduct', ProductController.deleteProduct);
+
     return router;
 }
