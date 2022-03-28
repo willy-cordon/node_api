@@ -3,6 +3,8 @@ const router = express.Router();
 const ClientController = require('../controllers/ClientController');
 const ProductController = require('../controllers/PorductController');
 const OrderController = require('../controllers/OrderController');
+const UserController = require('../controllers/UserController');
+
 
 module.exports = function(){
     //Client
@@ -46,5 +48,13 @@ module.exports = function(){
 
     //delete order
     router.delete('/orders/:idOrder', OrderController.deleteOrder);
+
+    //Users
+    router.post('/create-account', UserController.registerUser);
+
+    router.post('/login', UserController.authUser);
+
+
+
     return router;
 }

@@ -1,6 +1,7 @@
 const express = require('express');
 const routes = require('./routes');
 const mongoose = require('mongoose');
+const cors = require('cors')
 
 
 mongoose.Promise = global.Promise;
@@ -15,6 +16,13 @@ const app = express();
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+
+app.use(
+    cors({
+        origin: "*",
+        credentials:true,
+    })
+)
 
 
 app.use('/', routes());
