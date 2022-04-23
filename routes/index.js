@@ -5,10 +5,14 @@ const ProductController = require('../controllers/PorductController');
 const OrderController = require('../controllers/OrderController');
 const UserController = require('../controllers/UserController');
 
+const Auth = require('../middelware/auth');
 
 module.exports = function(){
+
+
+
     //Client
-    router.post('/clients', ClientController.newClient);
+    router.post('/clients',ClientController.newClient);
     router.get('/clients', ClientController.getClients);
     router.get('/clients/:idClient', ClientController.getClient);
     router.put('/clients/:idClient', ClientController.updateClient);

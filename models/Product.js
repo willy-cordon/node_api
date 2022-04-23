@@ -6,8 +6,11 @@ const productsSchema = new Schema({
         type:String,
         trim:true
     },
-    precio:{
-        type:Number,
+    descripcion:{
+        type:String,
+    },
+    url:{
+        type:String
     },
     imagen:{
         type:String,

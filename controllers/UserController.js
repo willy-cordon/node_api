@@ -39,7 +39,7 @@ exports.authUser = async (req, res, next) => {
                 email: user.email,
                 user: user.nombre,
                 id: user._id                
-            },'LLAVE SECRETA',{
+            },'48ACBF421DAADF991B83E0CEA63FAA32CBF337944B7C37BDE5BE16801CB8259F',{
                 expiresIn: '1h'
             });
             res.json({token})
