@@ -19,28 +19,28 @@ const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-const whitelist = [process.env.PORTFOLIO_URL];
-const corsOptions = {
-    origin:(origin, callback) =>{
-        const existe = whitelist.some( dominio => dominio === origin)
-        if(existe){
-            callback(null, true)
-        }else{
-            callback(new Error('No permitido por CORS'))
-        }
-    }
-}
-
-// app.use(
-//     cors({
-//         origin: "*",
-//         credentials:true,
-//     })
-// )
+// const whitelist = [process.env.PORTFOLIO_URL];
+// const corsOptions = {
+//     origin:(origin, callback) =>{
+//         const existe = whitelist.some( dominio => dominio === origin)
+//         if(existe){
+//             callback(null, true)
+//         }else{
+//             callback(new Error('No permitido por CORS'))
+//         }
+//     }
+// }
 
 app.use(
-    cors(corsOptions)
+    cors({
+        origin: "*",
+        credentials:true,
+    })
 )
+
+// app.use(
+//     cors(corsOptions)
+// )
 
 
 app.use('/', routes());
