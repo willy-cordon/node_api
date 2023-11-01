@@ -39,10 +39,9 @@ exports.validacionNosis = async(req,res,next) => {
     try {
         const body =req.body;
         const documento =body.documento;
-        console.log('documento')
-        console.log(documento)
         var response = "";
         if(((documento != undefined && documento != null) && (documento !=''))){
+            loggerData(body)
             response = {
                 "CantPreguntas": 4,
                 "IDCuestionario": "101403337-20345467875",
@@ -177,11 +176,20 @@ function validateEvaluacionNosis(body) {
         && ((body.Respuesta4 != undefined && body.Respuesta4 != null) && (body.Respuesta4 !=''))
     ){
         console.log("Datos requeridos ingresados");
+        loggerData(body)
         return true;
     }else{
         console.log("Datos requeridos NO ingresados");
         return false;
     }
     
+}
+function loggerData(data) {
+   
+    for(var k in data) {
+        console.log(k, data[k]);
+        console.log('Dato: ' + k + ', valor: ' + data[k]);
+        console.log("\n");
+     }
 }
 
