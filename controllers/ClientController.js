@@ -23,6 +23,16 @@ exports.getClients = async(req,res,next) => {
     }
 }
 
+exports.alive = async(req,res,next) => {
+    try {
+        const clients = 'is alive';
+        res.json(clients);
+    } catch (error) {
+        console.log(error);
+        next()
+    }
+}
+
 exports.getClient = async(req,res,next) => {
    
         const client = await Client.findById(req.params.idClient);
