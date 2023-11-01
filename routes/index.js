@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const ClientController = require('../controllers/ClientController');
 const NosisMockupController = require('../controllers/NosisMockupController');
+const CrmBancoMockup = require('../controllers/CrmBancoMockupController');
 const ProductController = require('../controllers/PorductController');
 const OrderController = require('../controllers/OrderController');
 const UserController = require('../controllers/UserController');
@@ -11,9 +12,15 @@ module.exports = function(){
 
 
     router.get('/alive', NosisMockupController.alive);
+    //Nosis
     router.post('/login',NosisMockupController.login);
     router.post('/api/v1/validacion-nosis',NosisMockupController.validacionNosis);
     router.post('/api/v1/evaluacion-nosis',NosisMockupController.evaluacionNosis);
+    //Crm banco
+    router.post('/login',NosisMockupController.login);
+    router.post('/api/v1/get-status-case',CrmBancoMockup.statusCase);
+    router.post('/api/v1/get-case-dni',CrmBancoMockup.getCaseDni);
+
     // //Client
     // router.post('/clients',ClientController.newClient);
     // router.get('/clients', ClientController.getClients);
