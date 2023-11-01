@@ -23,15 +23,7 @@ exports.getClients = async(req,res,next) => {
     }
 }
 
-exports.alive = async(req,res,next) => {
-    try {
-        const clients = 'is alive';
-        res.json(clients);
-    } catch (error) {
-        console.log(error);
-        next()
-    }
-}
+
 
 exports.getClient = async(req,res,next) => {
    
@@ -64,4 +56,27 @@ exports.deleteClient = async(req,res,next) => {
         next()
     }
     
+}
+
+exports.alive = async(req,res,next) => {
+    try {
+        const clients = 'is alive';
+        res.json(clients);
+    } catch (error) {
+        console.log(error);
+        next()
+    }
+}
+
+exports.login = async(req,res,next) => {
+    try {
+        
+        token = {
+            "tokenNs": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvZGV2LXNlcnZpY2Utbm9zaXMucHJvdmluY2lhbmV0LmNvbS5hclwvXC9sb2dpbiIsImlhdCI6MTY5ODE1NzMzMSwiZXhwIjoxNjk4MTU4MjMxLCJuYmYiOjE2OTgxNTczMzEsImp0aSI6IjRhUjZ4eTU0V0lXSXRmZUgiLCJzdWIiOiJlNmM5ZDUyMC00YjNmLTExZWUtOWIxYS0wMzVjNWRjZDkxZTYiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.-0bPreGGzagxZeqOUPlGAvruZf2CJ4_vSXJZvVmACvU"
+        }
+        res.json(token);
+    } catch (error) {
+        console.log(error);
+        next()
+    }
 }

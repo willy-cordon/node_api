@@ -1,16 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const ClientController = require('../controllers/ClientController');
+const NosisMockupController = require('../controllers/NosisMockupController');
 const ProductController = require('../controllers/PorductController');
 const OrderController = require('../controllers/OrderController');
 const UserController = require('../controllers/UserController');
-
 const Auth = require('../middelware/auth');
 
 module.exports = function(){
 
 
-    router.get('/alive', ClientController.alive);
+    router.get('/alive', NosisMockupController.alive);
+    router.post('/login',NosisMockupController.login);
+    router.post('/api/v1/validacion-nosis',NosisMockupController.validacionNosis);
+    router.post('/api/v1/evaluacion-nosis',NosisMockupController.evaluacionNosis);
     // //Client
     // router.post('/clients',ClientController.newClient);
     // router.get('/clients', ClientController.getClients);
