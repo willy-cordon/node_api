@@ -53,3 +53,4 @@ app.listen(5000);
 // app.listen(port, host, () =>{
 //     console.log('server init');
 // })
+module.exports = app;
