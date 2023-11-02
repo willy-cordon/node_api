@@ -3,7 +3,7 @@ const routes = require('./routes');
 // const mongoose = require('mongoose');
 const cors = require('cors')
 
-require('dotenv').config({path: 'variables.env'});
+// require('dotenv').config({path: 'variables.env'});
 
 
 // mongoose.Promise = global.Promise;
@@ -53,4 +53,3 @@ app.use('/', routes());
 // app.listen(port, host, () =>{
 //     console.log('server init');
 // })
-module.exports = app;
